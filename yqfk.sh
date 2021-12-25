@@ -1,4 +1,4 @@
-#!/usr/env bash
+#!/usr/bin/env bash
 
 ACCOUNT="$1"
 PASSWORD="$2"
