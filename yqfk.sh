@@ -18,9 +18,10 @@ token_len=$(expr ${#token} - 2)
 token=${token:1:${token_len}}
 # echo "TOKEN: " $token
 token=$(curl -X POST -b $COOKIE_FILE -c $COOKIE_FILE ${LOGIN_URL}\
-	-d "username=${ACCOUNT}&password=${ASSWORD}&__token__=${token}&wechat_verify=" \
+	-d "username=${ACCOUNT}&password=${PASSWORD}&__token__=${token}&wechat_verify=" \
 	-H "X-Requested-With: XMLHttpRequest")
-# echo $token
+echo $token
+(echo $token |grep -q '验证通过') || exit 1
 
 token=$(echo $token |egrep 'token=[^&]+' -o)
 token=${token:6}
