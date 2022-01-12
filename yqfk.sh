@@ -21,7 +21,10 @@ token=$(curl -X POST -b $COOKIE_FILE -c $COOKIE_FILE ${LOGIN_URL}\
 	-d "username=${ACCOUNT}&password=${PASSWORD}&__token__=${token}&wechat_verify=" \
 	-H "X-Requested-With: XMLHttpRequest")
 echo $token
-(echo $token |grep -q '验证通过') || rm $COOKIE_FILE && exit 1
+if ! grep -q 'info' <<<"$token"; then
+	rm $COOKIE_FILE
+	exit 1
+fi
 
 token=$(echo $token |egrep 'token=[^&]+' -o)
 token=${token:6}
