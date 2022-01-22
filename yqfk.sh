@@ -7,7 +7,7 @@ LOGIN_URL="https://cas.dgut.edu.cn/home/Oauth/getToken/appid/yqfkdaka/state/home
 AUTH_URL="https://yqfk-daka-api.dgut.edu.cn/auth"
 YQFK_URL="https://yqfk-daka-api.dgut.edu.cn/record"
 
-COOKIE_FILE=cookie.txt
+COOKIE_FILE=/tmp/cookie.txt
 
 response=$(curl -c $COOKIE_FILE $LOGIN_URL)
 # echo "RESPONSE: " $response
