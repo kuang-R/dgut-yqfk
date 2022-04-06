@@ -46,6 +46,6 @@ result=$(curl -X POST -b $COOKIE_FILE -c $COOKIE_FILE $YQFK_URL \
 rm $COOKIE_FILE
 echo $result
 (echo $result |grep -q '\\u60a8\\u4eca\\u5929\\u5df2\\u6253') && exit 0
-(echo $result |grep -q '\\u60a8\\u4eca\\u5929\\u5df2\\u7ecf\\u63d0\\u4ea4\\u8fc7') && exit 0
+(echo $result |grep -q '\\u60a8\\u4eca\\u5929\\u5df2\\u7ecf') && exit 0
 exit 1
 
