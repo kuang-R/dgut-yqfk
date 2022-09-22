@@ -9,18 +9,18 @@ YQFK_URL="https://yqfk-daka-api.dgut.edu.cn/record"
 
 COOKIE_FILE=/tmp/cookie.txt
 
-response=$(curl -c $COOKIE_FILE $LOGIN_URL)
+response=$(curl -s -c $COOKIE_FILE $LOGIN_URL)
 # echo "RESPONSE: " $response
 token=$(echo $response \
 	|egrep 'var token = "[^"]+"' -o \
 	|egrep '".+"' -o)
 token_len=$(expr ${#token} - 2)
 token=${token:1:${token_len}}
-# echo "TOKEN: " $token
-token=$(curl -X POST -b $COOKIE_FILE -c $COOKIE_FILE ${LOGIN_URL}\
+echo "登陆凭证TOKEN: " $token
+token=$(curl -s -X POST -b $COOKIE_FILE -c $COOKIE_FILE ${LOGIN_URL}\
 	-d "username=${ACCOUNT}&password=${PASSWORD}&__token__=${token}&wechat_verify=" \
 	-H "X-Requested-With: XMLHttpRequest")
-echo $token
+# echo $token
 if ! grep -q 'info' <<<"$token"; then
 	rm $COOKIE_FILE
 	exit 1
@@ -28,18 +28,18 @@ fi
 
 token=$(echo $token |egrep 'token=[^&]+' -o)
 token=${token:6}
-# echo "TOKEN" $token
-access_token=$(curl -X POST -b $COOKIE_FILE -c $COOKIE_FILE $AUTH_URL\
-	-d '{"token":"'$token'","state":"home"}')
+echo "登陆TOKEN: " $token
+access_token=$(curl -s -X POST -b $COOKIE_FILE -c $COOKIE_FILE $AUTH_URL\
+	-d '{"token":"'$token'","state":"yqfk"}')
 access_token=$(echo $access_token |egrep 'token":"[^"]+' -o)
 access_token=${access_token:8}
-# echo "ACCESS_TOKEN" $access_token
-form=$(curl -b $COOKIE_FILE -c $COOKIE_FILE $YQFK_URL \
+echo "表单ACCESS_TOKEN: " $access_token
+form=$(curl -s -b $COOKIE_FILE -c $COOKIE_FILE $YQFK_URL \
 	-H "Authorization: Bearer "$access_token)
 form=$(echo $form |egrep '"user_data":.+' -o)
 form='{"'${form:6}
-# echo $form
-result=$(curl -X POST -b $COOKIE_FILE -c $COOKIE_FILE $YQFK_URL \
+echo $form
+result=$(curl -s -X POST -b $COOKIE_FILE -c $COOKIE_FILE $YQFK_URL \
 	-H "Authorization: Bearer "$access_token \
 	-d "$form")
 
