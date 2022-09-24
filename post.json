@@ -1,0 +1,79 @@
+{
+    "data": {
+      "submit_time": "2022-9-24",
+      "name": "阮华锋",
+      "faculty_name": "计算机科学与技术学院",
+      "username": "2112115027",
+      "card_number": "440982199901211478",
+      "identity_type": 1,
+      "tel": "14718382638",
+      "body_temperature": "36.5",
+      "connect_person": "李信美",
+      "connect_tel": "13692589913",
+      "family_address_detail": "丰业小区",
+      "current_country": "142",
+      "current_province": "440000",
+      "current_city": "441900",
+      "current_district": "441901401",
+      "finally_back_time": "2022-5-6",
+      "latest_acid_test": "2022-09-21",
+      "now_in_area_level": 1,
+      "current_in_city": 32,
+      "huji_region": [
+        "142",
+        "440000",
+        "440900",
+        "440982"
+      ],
+      "family_region": [
+        "142",
+        "440000",
+        "440900",
+        "440982"
+      ],
+      "jiguan_region": [
+        "142",
+        "440000",
+        "440900",
+        "440982"
+      ],
+      "current_region": [
+        "142",
+        "440000",
+        "441900",
+        "441901401"
+      ],
+      "huji_region_name": "中国/广东省/茂名市/化州市",
+      "family_region_name": "中国/广东省/茂名市/化州市",
+      "jiguan_region_name": "中国/广东省/茂名市/化州市",
+      "card_type": "1",
+      "campus": 1,
+      "health_situation": 1,
+      "have_gone_important_area": 0,
+      "have_contact_hubei_people": 0,
+      "have_contact_illness_people": 0,
+      "have_isolation_in_dg": 0,
+      "is_in_dg": 0,
+      "is_new_in_dg": 1,
+      "finally_back_transportation": 0,
+      "have_go_out": 3,
+      "is_specific_people": 1,
+      "health_code_status": 1,
+      "in_controllerd_area": 0,
+      "completed_vaccination": 12,
+      "is_in_school": 1,
+      "have_stay_area": 0,
+      "family_situation": [
+        0
+      ],
+      "gps_country": "142",
+      "gps_province": "440000",
+      "gps_city": "441900",
+      "gps_district": "441901401",
+      "gps_country_name": "中国",
+      "gps_province_name": "广东省",
+      "gps_city_name": "东莞市",
+      "gps_district_name": "松山湖管委会",
+      "gps_address_name": "广东省东莞市松山湖管委会松山湖风景区东莞理工学院"
+    }
+  }
